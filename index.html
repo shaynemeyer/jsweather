@@ -5,10 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather App</title>
+    
+    <meta name="theme-color" content="#000">
+    <meta name="msapplication-navbutton-color" content="#000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+    <meta name="description" content="Weather Application">
+    <meta name="keywords" content="Weather Application, Weather">
+    <meta name="author" content="Shayne Meyer">
+
+    <link rel="shortcut icon" href="./assets/images/icons/favicon96x96.ico">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
     <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
-    <h1>hello</h1>
+    <div class="lds-dual-ring center display-none"></div>
+    <main>
+        <button id="open-menu-btn" class="ripple">
+            <img src="./assets/images/icons/menu.png" alt="" class="icon-sm-28">
+        </button>
+
+        <!-- currently weather section -->
+        <section id="current-day-weather-container">
+            <h1 class="location-label">Everett</h1>
+
+            <div id="temperature-summary-container" class="flex-container">
+                <div>
+                    <img src="./assets/images/summary-icons/clear-day-white.png" alt="">
+                </div>
+                <div>
+                    <h1 id="degrees-label">20&#176;</h1>
+                    <p id="summary-label">Clear Day</p>
+                </div>
+            </div>
+        </section>
+    </main>
     <script src="./scripts/index.js"></script>
 </body>
 </html>
