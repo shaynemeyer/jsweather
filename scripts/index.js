@@ -49,6 +49,42 @@ const UI = (function() {
   }
 })();
 
+// Get location module
+// - gets data about the location to search for weather
+const GETLOCATION = (function() {
+  let location;
+  const locationInput = document.querySelector('#location-input');
+  const addCityBtn = document.querySelector('#add-city-btn');
+
+  const _addCity = () => {
+    location = locationInput.value;
+    locationInput.value = '';
+    _disableAddCityBtn();
+
+    // get weather data
+    console.log('Get weather data for', location);
+  };
+
+  const _disableAddCityBtn = () => {
+    addCityBtn.setAttribute('disabled', 'true');
+    addCityBtn.classList.add('disabled');
+  };
+
+  locationInput.addEventListener('input', function() {
+    let inputText = this.value.trim();
+
+    if(inputText != '') {
+      addCityBtn.removeAttribute('disabled');
+      addCityBtn.classList.remove('disabled');
+    } else {
+      _disableAddCityBtn();
+    }
+  })
+
+  addCityBtn.addEventListener('click', _addCity);
+
+})();
+
 // Init
 window.onload = function() {
   UI.showApp();
