@@ -18,8 +18,8 @@
     <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
-    <div class="lds-dual-ring center display-none"></div>
-    <main>
+    <div class="lds-dual-ring center" id="app-loader"></div>
+    <main hidden>
         <button id="open-menu-btn" class="ripple">
             <img src="./assets/images/icons/menu.png" alt="" class="icon-sm-28">
         </button>
@@ -78,7 +78,7 @@
             </div>
 
             <!-- hourly weather -->
-            <div id="hourly-weather-wrapper" class="lower-panel-body">
+            <div id="hourly-weather-wrapper" class="lower-panel-body" visible="false">
                     <div class="flex-container weather-box">
                             <div>
                                 <h1>Sunday</h1>
