@@ -62,7 +62,7 @@ const GETLOCATION = (function() {
     _disableAddCityBtn();
 
     // get weather data
-    console.log('Get weather data for', location);
+    WEATHER.getWeather(location);
   };
 
   const _disableAddCityBtn = () => {
@@ -85,7 +85,48 @@ const GETLOCATION = (function() {
 
 })();
 
+// Get Weather Data
+// - will aquire weather data and then pass it to another module to be used in the UI.
+
+const WEATHER = (function() {
+  const {opencageapi, darkskyapi} = ENV.getVars();
+  const _getGeocodeUrl = (location) => `https://api.opencagedata.com/geocode/v1/json?q=${location}&key=${opencageapi}`;
+
+  const _getDarkskyUrl = (lat, lng) => `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${darkskyapi}/${lat},${lng}`;
+  
+const _getDarkSkyData = (url) => {
+  axios.get(url).then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+}
+
+  const getWeather = (location) => {
+    UI.loadApp();
+    let geocodeUrl = _getGeocodeUrl(location);
+
+    axios.get(geocodeUrl).then((res) => {
+      const lat = res.data.results[0].geometry.lat;
+      const lng = res.data.results[0].geometry.lng;
+      let darkskyURL = _getDarkskyUrl(lat, lng);
+
+      _getDarkSkyData(darkskyURL);
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
+
+  return {
+    getWeather
+  }
+})();
+
+
+
 // Init
 window.onload = function() {
   UI.showApp();
 }
+
