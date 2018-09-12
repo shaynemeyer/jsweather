@@ -26,17 +26,18 @@
 
         <!-- currently weather section -->
         <section id="current-day-weather-container">
-            <h1 class="location-label">Everett</h1>
+            <h1 class="location-label"></h1>
 
             <div id="temperature-summary-container" class="flex-container">
                 <div>
                     <!-- icon -->
-                    <img src="./assets/images/summary-icons/clear-day-white.png" alt="">
+                    <img
+                    id="currently-icon" src="./assets/images/summary-icons/clear-day-white.png" alt="">
                 </div>
                 <div>
                     <!-- degrees -->
-                    <h1 id="degrees-label">20&#176;</h1>
-                    <p id="summary-label">Clear Day</p>
+                    <h1 id="degrees-label"></h1>
+                    <p id="summary-label"></p>
                 </div>
             </div>
             <!-- humidity and wind speed-->
@@ -44,12 +45,12 @@
                 <!-- humidty -->
                 <div>
                     <img class="icon-sm-30" src="./assets/images/icons/humidity.png" alt="">
-                    <span>20%</span>
+                    <span id="humidity-label"></span>
                 </div>
                 <!-- wind -->
                 <div>
                     <img class="icon-sm-30" src="./assets/images/icons/wind-speed-flag.png" alt="">
-                    <span>3 m/h</span>
+                    <span id="wind-speed-label"></span>
                 </div>
             </div>
         </section>
@@ -62,37 +63,37 @@
 
             <!-- daily weather -->
             <div id="daily-weather-wrapper" class="lower-panel-body">
-                <div class="flex-container weather-box current-day-of-the-week">
+                <div class="flex-container weather-box display-none">
+                    <div>
+                        <h1>Sunday</h1>
+                    </div>
+                    <div class="flex-container">
                         <div>
-                            <h1>Sunday</h1>
+                            <p>18&#176;</p>
                         </div>
-                        <div class="flex-container">
-                            <div>
-                                <p>18&#176;</p>
-                            </div>
-                            <div>
-                                <img class="icon-sm-30" src="./assets/images/summary-icons/clear-day-white.png" alt="">
-                            </div>
+                        <div>
+                            <img class="icon-sm-30" src="./assets/images/summary-icons/clear-day-white.png" alt="">
                         </div>
                     </div>
+                </div>
             </div>
 
             <!-- hourly weather -->
             <div id="hourly-weather-wrapper" class="lower-panel-body" visible="false">
-                    <div class="flex-container weather-box">
-                            <div>
-                                <h1>Sunday</h1>
-                            </div>
-                            <div class="flex-container">
-                                <div>
-                                    <p>18&#176;</p>
-                                </div>
-                                <div>
-                                    <img class="icon-sm-30" src="./assets/images/summary-icons/clear-day-white.png" alt="">
-                                </div>
-                            </div>
+                <div class="flex-container weather-box display-none">
+                    <div>
+                        <h1>14:00</h1>
+                    </div>
+                    <div class="flex-container">
+                        <div>
+                            <p>18&#176;</p>
                         </div>
+                        <div>
+                            <img class="icon-sm-30" src="./assets/images/summary-icons/clear-day-white.png" alt="">
+                        </div>
+                    </div>
                 </div>
+            </div>
         </section>
 
         <!-- menu container -->
@@ -108,19 +109,19 @@
                     <input type="text" placeholder="Location" id="location-input">
                     <br>
                     <button class="ripple disabled" id="add-city-btn" disabled>Add City</button>
-                    <h1>Everett</h1>
+                    <h1 class="location-label"></h1>
                 </div>
 
                 <!-- saved cities -->
                 <div id="saved-cities-wrapper">
-                    <div class="flex-container saved-city-box">
-                        <div class="ripple">
-                            <h1>Everett</h1>
-                        </div>
-                        <div>
-                            <button class="ripple remove-saved-city">-</button>
-                        </div>
-                    </div>
+                    <!--<div class="flex-container saved-city-box">-->
+                        <!--<div class="ripple set-city">-->
+                            <!--<h1 class="set-city">Everett</h1>-->
+                        <!--</div>-->
+                        <!--<div>-->
+                            <!--<button class="ripple remove-saved-city">-</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
                 </div>
             </div>
         </section>
